@@ -3,36 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Qsama</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Jeffrey D. Sachs</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Georgia,"Times New Roman",Times,serif;background:#fff;color:#111;line-height:1.6}
+    #container{max-width:950px;margin:0 auto;padding:30px 20px}
+    #header{overflow:hidden;margin-bottom:25px;border-bottom:1px solid #ddd;padding-bottom:15px}
+    #header h1{float:left;font-size:32px;font-weight:normal;color:#111}
+    #header h1 a{color:#111;text-decoration:none}
+    #menu{float:right;margin-top:12px}
+    #menu li{list-style:none;display:inline-block;margin-left:16px;font-size:15px}
+    #menu li a{color:#333;text-decoration:none}
+    #menu li a:hover{text-decoration:underline}
+    #main{overflow:hidden}
+    #photo{float:left;width:220px;margin-right:40px}
+    #photo img{width:100%;height:auto;background:#ddd}
+    #content{float:left;width:650px}
+    #content h2{font-size:22px;margin-bottom:18px;font-weight:normal}
+    #content p{margin-bottom:16px;font-size:16px}
+    @media(max-width:768px){
+      #header h1,#menu,#photo,#content{float:none;width:100%}
+      #photo{margin-bottom:25px}
+      #menu{margin-top:20px}
+      #menu li{display:block;margin:5px 0}
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <h1>Qsama</h1>
-    <p class="desc">Personal Website</p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="articles.html">Articles</a>
-      <a href="books.html">Books</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<div id="container">
+  <div id="header">
+    <h1><a href="/">Jeffrey D. Sachs</a></h1>
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 
-  <main>
-    <!-- 这里就是灰色示例图片，直接显示！ -->
-    <img src="https://placehold.co/300x400?text=Photo" alt="Profile" class="avatar">
-
-    <h2>Welcome to My Website</h2>
-    <p>This is sample text. This is sample text.</p>
-    <p>This is sample text. This is sample text.</p>
-  </main>
-
-  <footer>
-    &copy; 2025 Qsama
-  </footer>
+  <div id="main">
+    <div id="photo">
+      <img src="https://placehold.co/220x300?text=PHOTO" alt="Portrait">
+    </div>
+    <div id="content">
+      <h2>Welcome</h2>
+      <p>Sample text. Sample text. Sample text.</p>
+      <p>Sample text. Sample text. Sample text.</p>
+      <p>Sample text. Sample text. Sample text.</p>
+    </div>
+  </div>
 </div>
 
 </body>

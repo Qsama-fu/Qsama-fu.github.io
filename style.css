@@ -15,11 +15,11 @@ body {
   max-width: 800px;
   margin: 60px auto;
   padding: 0 20px;
+  text-align: center;
 }
 
 header {
   margin-bottom: 50px;
-  text-align: center;
 }
 
 h1 {
@@ -33,10 +33,6 @@ h1 {
   margin-bottom: 25px;
 }
 
-nav {
-  margin-top: 20px;
-}
-
 nav a {
   margin: 0 12px;
   text-decoration: none;
@@ -48,16 +44,16 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.profile-pic {
-  width: 180px;
-  height: 180px;
-  background: #ddd;
+/* 图片样式 */
+.avatar {
+  width: 220px;
+  height: auto;
+  background: #eee;
   margin: 0 auto 30px;
-  border-radius: 4px;
+  display: block;
 }
 
 main {
-  text-align: center;
   margin-bottom: 60px;
 }
 
@@ -72,7 +68,6 @@ p {
 }
 
 footer {
-  text-align: center;
   font-size: 14px;
   color: #888;
   padding-top: 20px;

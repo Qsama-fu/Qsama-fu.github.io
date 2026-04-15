@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZJU&ZIBS - Jiajia.Lim</title>
+<style type="text/css">
+/* 全局基础样式（和主站统一） */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f8f8f8;
+  color: #000;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 40px 50px;
+}
+
+/* 顶部导航栏（和主站完全一致） */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+.logo {
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  border: 2px solid #000;
+  padding: 8px 12px;
+  display: inline-block;
+}
+.nav-top {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+}
+.nav-top li a {
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.nav-top li a:hover {
+  text-decoration: underline;
+}
+
+/* ZIBS 页面核心样式（1:1 复刻官网） */
+/* 顶部 Banner 区 */
+.zibs-banner {
+  width: 100%;
+  height: 280px;
+  background: #005ea6; /* ZIBS 主色调 */
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.zibs-banner-bg {
+  width: 100%;
+  height: 100%;
+  background: url('https://placehold.co/1920x280?text=ZIBS Banner&font=noto') center/cover no-repeat;
+  opacity: 0.85;
+}
+.zibs-banner-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.zibs-banner-logo img {
+  height: 50px;
+  width: auto;
+}
+.zibs-banner-logo .zibs-text {
+  font-size: 32px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* 三色模块区（复刻官网布局） */
+.zibs-programs {
+  display: flex;
+  width: 100%;
+  height: 350px;
+}
+.program-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px;
+  color: #fff;
+  position: relative;
+}
+.program-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.program-item h2 {
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 1.4;
+  position: relative;
+  z-index: 2;
+  border-left: 3px solid #fff;
+  padding-left: 20px;
+}
+/* 三个模块颜色（复刻官网） */
+.undergraduate {
+  background: #009688; /* 绿色 */
+  background-image: url('https://placehold.co/600x350?text=Undergraduate&font=noto');
+  background-size: cover;
+  background-position: center;
+}
+.postgraduate {
+  background: #0277bd; /* 蓝色 */
+  background-image: url('https://placehold.co/600x350?text=Postgraduate&font=noto');
+  background-size: cover;
+  background-position: center;
+}
+.executive {
+  background: #7b1fa2; /* 紫色 */
+  background-image: url('https://placehold.co/600x350?text=Executive&font=noto');
+  background-size: cover;
+  background-position: center;
+}
+
+/* 数据统计区（复刻官网） */
+.zibs-stats {
+  width: 100%;
+  height: 220px;
+  background: #005ea6; /* ZIBS 深蓝色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  color: #fff;
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stat-icon img {
+  width: 40px;
+  height: 40px;
+}
+.stat-text {
+  text-align: left;
+}
+.stat-number {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.stat-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 响应式适配 */
+@media (max-width: 900px) {
+  .header-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .nav-top {
+    flex-wrap: wrap;
+  }
+  .zibs-programs {
+    flex-direction: column;
+    height: auto;
+  }
+  .program-item {
+    height: 200px;
+  }
+  .zibs-stats {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 30px 0;
+    gap: 30px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航（和主站统一：JJL Logo + 菜单） -->
+<div class="header-top">
+  <div class="logo">JJL</div>
+  <ul class="nav-top">
+    <li><a href="index.html">Teaching</a></li>
+    <li><a href="#">Research&Project</a></li>
+    <li><a href="zju-zibs.html">ZJU&ZIBS</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ZIBS 核心内容区（1:1 复刻官网） -->
+<!-- 顶部 Banner -->
+<div class="zibs-banner">
+  <div class="zibs-banner-bg"></div>
+  <div class="zibs-banner-logo">
+    <!-- ZIBS Logo 占位（可替换为真实Logo） -->
+    <img src="https://placehold.co/80x50?text=ZJU-ZIBS&font=noto" alt="ZJU ZIBS Logo">
+    <div class="zibs-text">ZIBS</div>
+  </div>
+</div>
+
+<!-- 三色模块区（Undergraduate/Postgraduate/Executive） -->
+<div class="zibs-programs">
+  <div class="program-item undergraduate">
+    <h2>Undergraduate Program</h2>
+  </div>
+  <div class="program-item postgraduate">
+    <h2>Postgraduate Programs</h2>
+  </div>
+  <div class="program-item executive">
+    <h2>Executive Education</h2>
+  </div>
+</div>
+
+<!-- 数据统计区 -->
+<div class="zibs-stats">
+  <div class="stat-item">
+    <div class="stat-icon">
+      <img src="https://placehold.co/40x40?text=2018&color=005ea6" alt="Founded">
+    </div>
+    <div class="stat-text">
+      <div class="stat-number">2018</div>
+      <div class="stat-label">FOUNDED</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <img src="https://placehold.co/40x40?text=7&color=005ea6" alt="Degree Programs">
+    </div>
+    <div class="stat-text">
+      <div class="stat-number">7</div>
+      <div class="stat-label">DEGREE PROGRAMS</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <img src="https://placehold.co/40x40?text=900+&color=005ea6" alt="Students">
+    </div>
+    <div class="stat-text">
+      <div class="stat-number">900+</div>
+      <div class="stat-label">STUDENTS</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <img src="https://placehold.co/40x40?text=20+&color=005ea6" alt="Research Centers">
+    </div>
+    <div class="stat-text">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">RESEARCH CENTERS</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

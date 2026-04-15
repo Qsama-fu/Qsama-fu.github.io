@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jiajia.Lim</title> <!-- 已改 Title -->
+<title>Jiajia.Lim</title>
 <style type="text/css">
 /* 原版全局样式 1:1 还原 */
 * {
@@ -53,34 +53,43 @@ body {
   text-decoration: underline;
 }
 
-/* 核心内容区：照片 + 简介 */
+/* 核心内容区：照片 + 简介（重点调整） */
 .hero-section {
-  display: flex;
-  gap: 50px;
+  position: relative; /* 改为相对定位，实现卡片叠加 */
   margin-bottom: 60px;
+  max-width: 900px; /* 匹配原图宽度 */
 }
 .hero-photo {
-  width: 860px;
-  flex-shrink: 0;
+  width: 600px; /* 原图照片宽度 */
+  height: auto;
 }
 .hero-photo img {
   width: 100%;
   height: auto;
-  background: #ddd; /* 灰色占位图 */
+  display: block;
 }
+/* 简介卡片：纯白背景 + 叠加定位 + 字体大小复刻 */
 .hero-bio {
-  padding-top: 20px;
-  max-width: 450px;
+  position: absolute;
+  right: 0;
+  bottom: 50px; /* 卡片与照片底部间距 */
+  width: 450px;
+  background: #ffffff; /* 纯白背景 */
+  padding: 35px 40px;
+  box-shadow: none; /* 无阴影，匹配原图 */
 }
 .hero-bio h1 {
-  font-size: 36px;
+  font-size: 42px; /* 复刻原图标题字号 */
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
 }
 .hero-bio p {
-  margin-bottom: 15px;
-  font-size: 16px;
+  font-size: 18px; /* 复刻原图正文字号 */
   color: #333;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* 正文区域 */
@@ -208,27 +217,27 @@ body {
   text-decoration: underline;
 }
 
-/* 响应式适配（原版手机端逻辑） */
+/* 响应式适配（适配新的叠加布局） */
 @media (max-width: 900px) {
   .hero-section {
-    flex-direction: column;
-    gap: 30px;
+    position: static;
   }
   .hero-photo {
     width: 100%;
-    max-width: 480px;
+    max-width: 600px;
     margin: 0 auto;
   }
   .hero-bio {
-    max-width: 100%;
-  }
-  .book-section {
-    flex-direction: column;
-  }
-  .book-cover {
+    position: static;
     width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
+    margin-top: 20px;
+    padding: 25px;
+  }
+  .hero-bio h1 {
+    font-size: 36px;
+  }
+  .hero-bio p {
+    font-size: 16px;
   }
   .header-top {
     flex-direction: column;
@@ -242,9 +251,9 @@ body {
 </head>
 <body>
 
-<!-- 顶部导航：Logo改为JJL，菜单替换为指定内容 -->
+<!-- 顶部导航 -->
 <div class="header-top">
-  <div class="logo">JJL</div> <!-- 已改 Logo 为 JJL -->
+  <div class="logo">JJL</div>
   <ul class="nav-top">
     <li><a href="#">Teaching</a></li>
     <li><a href="#">Research&Project</a></li>
@@ -253,14 +262,16 @@ body {
   </ul>
 </div>
 
-<!-- 核心：照片 + 简介 -->
+<!-- 核心：照片 + 简介（重点调整区域） -->
 <div class="hero-section">
+  <!-- 年轻中国女学者占位图，尺寸匹配原图 -->
   <div class="hero-photo">
-    <img src="https://placehold.co/480x600?text=Portrait" alt="Jiajia.Lim">
+    <img src="https://placehold.co/600x800?text=年轻中国女学者&font=noto" alt="Jiajia.Lim">
   </div>
+  <!-- 纯白背景简介卡片，字体大小复刻原图 -->
   <div class="hero-bio">
     <h1>Jiajia.Lim</h1>
-    <p>is a professional educator and researcher, focusing on academic research and teaching practice.</p>
+    <p>is a world-renowned economics professor, bestselling author, innovative educator, and global leader in sustainable development.</p>
   </div>
 </div>
 
@@ -320,7 +331,7 @@ body {
   </div>
 </div>
 
-<!-- 底部导航：适配新菜单 -->
+<!-- 底部导航 -->
 <div class="footer-nav">
   <ul>
     <li><a href="#">Teaching</a></li>

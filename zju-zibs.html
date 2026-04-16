@@ -5,103 +5,186 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ZJU&ZIBS - Jiajia.Lim</title>
 <style type="text/css">
-/* 全局基础样式（和主站统一） */
+/* 全局重置 + 基础样式 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background: #f8f8f8;
-  color: #000;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 16px;
-  line-height: 1.7;
-  margin: 0 auto;
-  max-width: 1100px;
-  padding: 40px 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  background: #003366; /* ZIBS 主背景色 */
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* 顶部导航栏（和主站完全一致） */
-.header-top {
+/* 顶部导航（保留你的统一菜单 + JJL Logo） */
+.header-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 30px;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 17, 51, 0.8); /* 半透明深蓝背景 */
 }
-.logo {
+.logo-jjl {
   font-size: 24px;
   font-weight: normal;
   letter-spacing: 1px;
-  border: 2px solid #000;
+  border: 2px solid #fff;
   padding: 8px 12px;
   display: inline-block;
+  color: #fff;
 }
-.nav-top {
+.nav-custom {
   list-style: none;
   display: flex;
-  gap: 18px;
+  gap: 25px;
   font-size: 14px;
-}
-.nav-top li a {
-  color: #000;
-  text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
-.nav-top li a:hover {
-  text-decoration: underline;
+.nav-custom li a {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.nav-custom li a:hover {
+  color: #ffcc00; /* 悬停金色高亮 */
 }
 
-/* ZIBS 页面核心样式（1:1 复刻官网） */
-/* 顶部 Banner 区 */
+/* ZIBS 全屏 Banner 区（1:1 复刻官网） */
 .zibs-banner {
-  width: 100%;
-  height: 280px;
-  background: #005ea6; /* ZIBS 主色调 */
+  width: 100vw; /* 全屏宽度 */
+  height: 100vh; /* 全屏高度 */
+  min-height: 700px;
   position: relative;
   overflow: hidden;
-  margin-bottom: 0;
+  background: url('https://placehold.co/1920x1080?text=ZIBS Building&color=003366') center/cover no-repeat;
 }
-.zibs-banner-bg {
+/* Banner 遮罩（官网同款深蓝色渐变） */
+.zibs-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: url('https://placehold.co/1920x280?text=ZIBS Banner&font=noto') center/cover no-repeat;
-  opacity: 0.85;
+  background: linear-gradient(to right, rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.7));
+  z-index: 1;
 }
-.zibs-banner-logo {
+/* ZIBS 顶部官网导航（仅展示，无跳转） */
+.zibs-top-nav {
   position: absolute;
   top: 20px;
-  left: 30px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px;
+  z-index: 2;
+}
+.zibs-logo {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.zibs-banner-logo img {
+.zibs-logo img {
   height: 50px;
   width: auto;
 }
-.zibs-banner-logo .zibs-text {
-  font-size: 32px;
+.zibs-top-menu {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+}
+.zibs-top-menu-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 13px;
+}
+.search-box {
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  background: transparent;
   color: #fff;
-  font-weight: bold;
-  letter-spacing: 2px;
+  border-radius: 20px;
+  width: 180px;
+}
+/* Banner 中间内容（官网同款） */
+.zibs-banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+/* 图3 ZIBS Logo 居中展示 */
+.zibs-main-logo {
+  width: 300px;
+  height: auto;
+  margin: 0 auto 30px;
+  filter: brightness(0) invert(1); /* 白色 Logo */
+}
+.zibs-banner-title {
+  font-size: 8vw; /* 响应式字号，适配全屏 */
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.zibs-banner-subtitle {
+  font-size: 2vw;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+.zibs-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.zibs-learn-more:hover {
+  transform: translateX(10px);
+}
+.arrow-icon {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 三色模块区（复刻官网布局） */
+/* 三色模块区（官网同款配色+动效） */
 .zibs-programs {
   display: flex;
-  width: 100%;
-  height: 350px;
+  width: 100vw; /* 全屏宽度 */
+  height: 400px;
 }
 .program-item {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 40px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
   color: #fff;
   position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease; /* hover 动效 */
 }
 .program-item::before {
   content: "";
@@ -110,112 +193,161 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.15);
   z-index: 1;
+  transition: all 0.5s ease;
+}
+.program-item:hover {
+  transform: scale(1.02); /* hover 放大 */
+}
+.program-item:hover::before {
+  background: rgba(0,0,0,0.05);
 }
 .program-item h2 {
-  font-size: 28px;
-  font-weight: normal;
-  line-height: 1.4;
-  position: relative;
-  z-index: 2;
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 30px;
   border-left: 3px solid #fff;
   padding-left: 20px;
+  position: relative;
+  z-index: 2;
 }
-/* 三个模块颜色（复刻官网） */
+.program-item ul {
+  list-style: none;
+  position: relative;
+  z-index: 2;
+}
+.program-item ul li {
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding-left: 20px;
+  position: relative;
+}
+.program-item ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #fff;
+}
+/* 官网精准配色 */
 .undergraduate {
   background: #009688; /* 绿色 */
-  background-image: url('https://placehold.co/600x350?text=Undergraduate&font=noto');
+  background-image: url('https://placehold.co/800x400?text=Undergraduate&color=009688');
   background-size: cover;
   background-position: center;
 }
 .postgraduate {
   background: #0277bd; /* 蓝色 */
-  background-image: url('https://placehold.co/600x350?text=Postgraduate&font=noto');
+  background-image: url('https://placehold.co/800x400?text=Postgraduate&color=0277bd');
   background-size: cover;
   background-position: center;
 }
 .executive {
   background: #7b1fa2; /* 紫色 */
-  background-image: url('https://placehold.co/600x350?text=Executive&font=noto');
+  background-image: url('https://placehold.co/800x400?text=Executive&color=7b1fa2');
   background-size: cover;
   background-position: center;
 }
 
-/* 数据统计区（复刻官网） */
+/* 数据统计区（官网同款+动效） */
 .zibs-stats {
-  width: 100%;
-  height: 220px;
+  width: 100vw; /* 全屏宽度 */
+  height: 250px;
   background: #005ea6; /* ZIBS 深蓝色 */
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 80px;
   color: #fff;
 }
 .stat-item {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+.stat-item:hover {
+  transform: translateY(-10px); /* hover 上移 */
 }
 .stat-icon {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   background: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 5px solid #004a80;
 }
 .stat-icon img {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
 }
 .stat-text {
   text-align: left;
 }
 .stat-number {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
 }
 .stat-label {
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  color: #e0e0e0;
 }
 
-/* 响应式适配 */
-@media (max-width: 900px) {
-  .header-top {
-    flex-direction: column;
-    gap: 20px;
+/* 响应式适配（复刻官网移动端逻辑） */
+@media (max-width: 1200px) {
+  .zibs-banner-title {
+    font-size: 70px;
   }
-  .nav-top {
-    flex-wrap: wrap;
+  .zibs-banner-subtitle {
+    font-size: 24px;
+  }
+  .zibs-stats {
+    gap: 40px;
+  }
+}
+@media (max-width: 900px) {
+  .header-custom {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  .zibs-banner {
+    height: 600px;
+  }
+  .zibs-banner-title {
+    font-size: 50px;
   }
   .zibs-programs {
     flex-direction: column;
     height: auto;
   }
   .program-item {
-    height: 200px;
+    height: 250px;
   }
   .zibs-stats {
     flex-wrap: wrap;
     height: auto;
-    padding: 30px 0;
+    padding: 40px 0;
     gap: 30px;
+  }
+  .zibs-top-nav {
+    display: none; /* 移动端隐藏官网顶部导航 */
   }
 }
 </style>
 </head>
 <body>
 
-<!-- 顶部导航（和主站统一：JJL Logo + 菜单） -->
-<div class="header-top">
-  <div class="logo">JJL</div>
-  <ul class="nav-top">
+<!-- 自定义顶部导航（你的 JJL Logo + 统一菜单） -->
+<div class="header-custom">
+  <div class="logo-jjl">JJL</div>
+  <ul class="nav-custom">
     <li><a href="index.html">Teaching</a></li>
     <li><a href="#">Research&Project</a></li>
     <li><a href="zju-zibs.html">ZJU&ZIBS</a></li>
@@ -223,18 +355,46 @@ body {
   </ul>
 </div>
 
-<!-- ZIBS 核心内容区（1:1 复刻官网） -->
-<!-- 顶部 Banner -->
+<!-- ZIBS 全屏 Banner 区 -->
 <div class="zibs-banner">
-  <div class="zibs-banner-bg"></div>
-  <div class="zibs-banner-logo">
-    <!-- ZIBS Logo 占位（可替换为真实Logo） -->
-    <img src="https://placehold.co/80x50?text=ZJU-ZIBS&font=noto" alt="ZJU ZIBS Logo">
-    <div class="zibs-text">ZIBS</div>
+  <!-- 官网顶部导航（复刻展示） -->
+  <div class="zibs-top-nav">
+    <div class="zibs-logo">
+      <img src="https://placehold.co/80x50?text=ZJU&color=fff" alt="ZJU Logo">
+      <span>ZIBS</span>
+    </div>
+    <div class="zibs-top-menu">
+      <a href="#">Programs</a>
+      <a href="#">Admissions</a>
+      <a href="#">Faculty & Research</a>
+      <a href="#">Student Life</a>
+    </div>
+    <div class="zibs-top-menu-right">
+      <a href="#">Home</a>
+      <a href="#">Join Us</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Support Us</a>
+      <a href="#">myZIBS</a>
+      <a href="#">中文网</a>
+      <input type="text" class="search-box" placeholder="Search...">
+    </div>
+  </div>
+
+  <!-- Banner 中间内容（含图3 ZIBS Logo） -->
+  <div class="zibs-banner-content">
+    <!-- 图3 ZIBS Logo 核心展示 -->
+    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5b4b1a27be31480583845e7e91d2cef5.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260415212351198CE542C392E5F05A22&rrcfp=8a172a1a&x-expires=1776864232&x-signature=LEuqgHGAUFaSz%2F9%2BpIF2q9p79P0%3D" 
+         class="zibs-main-logo" alt="ZIBS Logo">
+    <h1 class="zibs-banner-title">Applications Open</h1>
+    <p class="zibs-banner-subtitle">NSFC Excellent Young Scientists Fund</p>
+    <div class="zibs-learn-more">
+      <span>Learn More</span>
+      <div class="arrow-icon">→</div>
+    </div>
   </div>
 </div>
 
-<!-- 三色模块区（Undergraduate/Postgraduate/Executive） -->
+<!-- 三色模块区（复刻官网内容+动效） -->
 <div class="zibs-programs">
   <div class="program-item undergraduate">
     <h2>Undergraduate Program</h2>
@@ -244,14 +404,19 @@ body {
   </div>
   <div class="program-item executive">
     <h2>Executive Education</h2>
+    <ul>
+      <li>Flagship Programs</li>
+      <li>Bespoke Programs</li>
+      <li>Online Programs</li>
+    </ul>
   </div>
 </div>
 
-<!-- 数据统计区 -->
+<!-- 数据统计区（复刻官网+动效） -->
 <div class="zibs-stats">
   <div class="stat-item">
     <div class="stat-icon">
-      <img src="https://placehold.co/40x40?text=2018&color=005ea6" alt="Founded">
+      <img src="https://placehold.co/45x45?text=🏛️&color=005ea6" alt="Founded">
     </div>
     <div class="stat-text">
       <div class="stat-number">2018</div>
@@ -260,7 +425,7 @@ body {
   </div>
   <div class="stat-item">
     <div class="stat-icon">
-      <img src="https://placehold.co/40x40?text=7&color=005ea6" alt="Degree Programs">
+      <img src="https://placehold.co/45x45?text=🎓&color=005ea6" alt="Degree Programs">
     </div>
     <div class="stat-text">
       <div class="stat-number">7</div>
@@ -269,7 +434,7 @@ body {
   </div>
   <div class="stat-item">
     <div class="stat-icon">
-      <img src="https://placehold.co/40x40?text=900+&color=005ea6" alt="Students">
+      <img src="https://placehold.co/45x45?text=👨‍🎓&color=005ea6" alt="Students">
     </div>
     <div class="stat-text">
       <div class="stat-number">900+</div>
@@ -278,7 +443,7 @@ body {
   </div>
   <div class="stat-item">
     <div class="stat-icon">
-      <img src="https://placehold.co/40x40?text=20+&color=005ea6" alt="Research Centers">
+      <img src="https://placehold.co/45x45?text=🔬&color=005ea6" alt="Research Centers">
     </div>
     <div class="stat-text">
       <div class="stat-number">20+</div>
